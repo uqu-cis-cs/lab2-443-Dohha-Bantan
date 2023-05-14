@@ -85,7 +85,7 @@
             </execution>
           </executions>
           <configuration>
-            <mainClass>edu.uqu.cs.App</mainClass>
+            <mainClass>edu.uqu.cs.Home</mainClass>
           </configuration>
         </plugin>
       </plugins>
