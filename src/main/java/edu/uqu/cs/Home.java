@@ -9,14 +9,14 @@ package edu.uqu.cs;
 */
 import java.util.Scanner;  
 
-// حاولت الصراحة
+
 
 public class Home{
 	public static void main(String [] args){
 
 		// Create an object of type Garage 
                 //HERE
-          Garage g = new Garage();
+              Garage g = new Garage();
 
 	        // Add "Toyota Corolla Cross" in the garage. Hint: use method addCar () of class Garage
                 //HERE

@@ -49,7 +49,7 @@ public class Garage{
      */
     public Garage(){
         for( int i=0; i<cars.length; i++){
-            cars[i]= new cars();
+            cars[i]= new Car();
         }
     }
 
@@ -66,30 +66,30 @@ public class Garage{
      * Syntax:
      * public void methodName(String m)
      */
-      public void addCar(String m){   
-       boolean found=false;
+    public void addCar(String m){   
+      boolean found=false;
 
-       for(int i=0; i<countCars; i++){
-        if(cars[i].getModel().equals(m)){
-          found=true;
-          cars[i].moveCarIn();
-        }
+      for(int i=0; i<cars.length; i++){
+       if(cars[i].getModel().equals(m)){
+         found=true;
+         cars[i].moveCarIn();
        }
-       if(!found){
-        if(countCars<cars.length){
-          Car c= new Car();
-          c.setModel(m);
-          cars[countCars]=c;
-
-          cars[countCars].moveCarIn();
-          countCars++;
-        } else {
-           System.out.println("full garage");
-        }
-       
-       }
-        
       }
+      if(found==false){
+       if(countCars<cars.length){
+         Car c= new Car();
+         c.setModel(m);
+         cars[countCars]=c;
+
+         cars[countCars].moveCarIn();
+         countCars++;
+       } else {
+          System.out.println("full garage");
+        }
+      
+      }
+       
+   }
    
 
     /************ Part 5 **************/
@@ -125,13 +125,14 @@ public class Garage{
      */
     public void moveIn(String m){
 
-       for(int i=0; i<cars.length; i++){
-        if(cars[i].getInOutGarage().equals(m)){
-          cars[i].moveCarOut();
-        } // ماقدرت اخرج الفكرة اللي في مخي
-       }
+      for(int i=0; i<cars.length; i++){
+       if(cars[i].getModel().equals(m)){
+         continue;
+       } 
+       cars[i].moveCarIn();
+      }
 
-    }
+   }
 
 
     /************ Part 7 **************/
@@ -144,14 +145,15 @@ public class Garage{
      *
      */
     public void listCars(){
-       Car s= new Car();
-
-      for( int i=0; i<cars.length; i++){ 
-        s=cars[i].getModel();
-        s.toString();
-        s=(s+",");
-
-      } System.out.print(s);
+       
+       System.out.println(" Cars in the garage: ");
+       for ( int i=0; i<cars.length; i++){
+          
+          if (cars[i].getInOutGarage()==true){
+               System.out.println(cars[i].getModel() +"\n");
+               
+          }
+       }
     }
 
 
